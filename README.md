@@ -6,6 +6,7 @@ vue.js学习路径
 
 ## 视图层
 点击可直接到达详情页面
+
 **指令**
 - [`{{ }}` / `v-html`](https://www.cnblogs.com/webxu20180730/p/10890377.html)
 - [`v-if` / `v-else` / `v-else-if`](https://www.cnblogs.com/webxu20180730/p/10890502.html)
