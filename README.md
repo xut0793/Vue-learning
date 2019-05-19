@@ -1,5 +1,8 @@
 # Vue-learning
-vue.js学习目录
+vue.js学习路径
+
+![map](./image/渐近式1.png)
+
 
 ##视图层
 **指令**
