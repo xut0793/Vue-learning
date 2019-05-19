@@ -1,6 +1,4 @@
-# 《Vue.js快跑》
-
-2019-4-17
+### 区别：`filters`/`data`/`computed`/`watch`/`methods`
 
 在配置对象`options`中，`filters`/`data`/`computed`/`watch`/`methods`的每一项都有适合的场景，并且通常在项目中都是混合使用。
 

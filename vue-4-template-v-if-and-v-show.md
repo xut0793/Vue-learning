@@ -1,5 +1,4 @@
-# 《vue.js快跑》- 4 控制元素可见性的指令`v-if`和`v-show`
-2019-3-31
+# 控制元素可见性的指令`v-if`和`v-show`
 
 - `v-if`
 - `v-else` 
@@ -14,7 +13,7 @@
 
 `v-if="value"`当value为真值时，绑定的元素显示；为假值时，绑定的元素不会被写入页面。
 
->假值包括`false` , `nudefined`, `null`, `NaN`, `""`，除此为真值
+>假值falsy包括`false` , `nudefined`, `null`, `NaN`, `""`，除此为真值
 
 ```html
 <div id="example">
@@ -54,7 +53,8 @@
     <p v-else-if="now === 'evening'">Good evening</p>
     <p v-else>now is wrong</p>
 </div>
-
+```
+```js
 <script>
     new Vue({
         el: "#app",
@@ -182,11 +182,8 @@ new Vue({
 ## `v-if`和`v-show`的区别
 
     v-if指令为假值时，绑定的元素不会显示，Vue也不会生成对应的DOM元素，等到为真假时才创建并添加到DOM树中。
-
     v-if指令每次显示都会创建元素并插入DOM树中，每次隐藏都会从DOM树中删除，绑定元素的显示和隐藏都需要更新DOM树。并且在v-if真假值的切换过程中，条件块内的事件监听器和子组件也会适当地被销毁和重建。所以v-if指令有很大的性能开销。
-
 ---
-
     v-show绑定的元素只在初始阶段被创建，并保留在 DOM 中。元素的显示与隐藏只是添加或删除元素的 CSS 属性 display:none。
     v-show 不支持 <template> 分组包裹元素，也不支持 v-else
 
@@ -196,7 +193,7 @@ new Vue({
 
 ## `v-if=expression`和`v-show=expression` 值可以是表达式返回的`truthy` / `falsy`值
 
-同{{}}插值中可以进行简单的表达式运算一样，`v-if`和`v-show`的值也可以是表达式，只表达的结果的 `truthy`真值 或 `falsy`虚值 的值即可。
+同{{}}插值中可以进行简单的表达式运算一样，`v-if`和`v-show`的值也可以是表达式，只要表达的结果是 `truthy`真值 或 `falsy`虚值 的值即可。
 > 在 JavaScript 中，Truthy (真值)指的是在 布尔值 上下文中转换后的值为真的值。所有值都是真值
 
 >falsy(虚值)是在 Boolean 上下文中已认定可转换为‘假‘的值。即false，0，""，null，undefined 和 NaN。

@@ -1,6 +1,3 @@
-# 《Vue.js快跑》
-2019-4-13
-
 ## 使用ref直接访问DOM元素
 传统DOM操作或jQuery操作DOM，都必须是选择器先选择对应的DOM元素。比如：
 ```html
@@ -12,6 +9,10 @@ var $dom = $("#btn")
 console.log(dom === $dom[0]) // true
 ```
 在vue中提供了更为便捷的方法，只需要在元素开始标签内添加ref特性即可。然后在js部分使用`this.$refs`获取DOM元素。这个元素完全是原生DOM元素。
+
+    `this.$refs`返回的是一个对象，所有注册过的`ref`特性的值作为对象的`key`，对应的DOM元素为`value`。
+
+    为了保证`this.$refs`调用能获取DOM元素，需要在`this.$nextTick`的回调函数中执行。关于`$nextTick`函数下节讲解。
 ```html
 <button ref="btn" id="btn">按钮</button>
 ```

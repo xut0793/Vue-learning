@@ -1,4 +1,4 @@
-#《Vue.js快跑》
+# new Vue(options)中option
 
 2019-4-14
 
@@ -51,18 +51,15 @@ var APP = new Vue({
 ```
 > 上面选项顺序遵守`vue`官方推荐,具体查看[vue编码风格指南](https://cn.vuejs.org/v2/style-guide/#%E7%BB%84%E4%BB%B6-%E5%AE%9E%E4%BE%8B%E7%9A%84%E9%80%89%E9%A1%B9%E7%9A%84%E9%A1%BA%E5%BA%8F-%E6%8E%A8%E8%8D%90)
 
-后面我们对每一个配置对象`option`进行理解：
-[`el:''` 挂载点]()
-[`components: {}` 组件]()
-[`directives: {}` 自定义指令]()
-[`filters: {}` 过滤器]()
-[`mixins: {}` 混入]()
-[`data: {}` 数据]()
-[`computed: {}` 计算属性]()
-[`watch: {}` 监听器]()
-[`methods: {}` 方法]()
-[`template: ''` 模板]()
-[`render()` 函数渲染]()
-
-
-
+后面我们对配置对象`options`进行理解：
+1. [`el:''` 挂载点]()
+1. [`components: {}` 组件]()
+1. [`directives: {}` 自定义指令](https://www.cnblogs.com/webxu20180730/p/10891658.html)
+1. [`filters: {}` 过滤器](https://www.cnblogs.com/webxu20180730/p/10891616.html)
+1. [`mixins: {}` 混入](https://www.cnblogs.com/webxu20180730/p/10891639.html)
+1. [`data: {}` 数据](https://www.cnblogs.com/webxu20180730/p/10891560.html)
+1. [`computed: {}` 计算属性](https://www.cnblogs.com/webxu20180730/p/10891568.html)
+1. [`watch: {}` 监听器](https://www.cnblogs.com/webxu20180730/p/10891604.html)
+1. [`methods: {}` 方法](https://www.cnblogs.com/webxu20180730/p/10891585.html)
+1. [`template: ''` 模板](https://www.cnblogs.com/webxu20180730/p/10890790.html)
+1. [`render()` 函数渲染](https://www.cnblogs.com/webxu20180730/p/10890790.html)

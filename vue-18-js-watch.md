@@ -1,8 +1,4 @@
-# 《Vue.js快跑》
-
-2019-4-17
-
-### `watch`
+## `watch`
 `watch`可以监听`data`和`computed`中值的变化。
 
 `watch`在实例对象作用域中可以监听实例对象的数据，即`var vm = new Vue(options)`时作为配置对象属性传入。监听组件作用域内的数据，可以在组件的配置选项中传入。
@@ -13,7 +9,7 @@
 - `value: String | Function | Array | Object( handler | [deep | immediate])`
 - `retuan: Function`
 
-[DEMO:例子](https://jsrun.net/5tXKp/edit)
+[点击查看DEMO:例子](https://jsrun.net/5tXKp/edit)
 ```js
 var vm = new Vue({
     data: {
@@ -100,7 +96,7 @@ new Vue({
 })
 ```
 
-###### 深度监听
+###### 深度监听 `deep: true`
 默认情况下，监听某个对象时，只有当整个对象引用改变时才触发监听回调。但有时，我们期望这个对象的任意一个属性值发生变化都能触发监听回调。而不是监听整个对象引用变化或仅仅某一个属性值变化。此时我们可以在对象写法中传入`deep:true`的配置项
 
 下例的例子，不管是`e.n`变化，还是`e.f.g`变化，又或是`e.f`或`e`变化都会触发回调。

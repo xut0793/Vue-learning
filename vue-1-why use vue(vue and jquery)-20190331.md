@@ -1,8 +1,10 @@
-# 《vue.js快跑》
-2019-3-31
+
 ## 为什么选择Vue
-    有这个一个需求，我们需要根据后端数据接口请求返回的数组在页面中按列表展示？
-    传统上我们使用jQuery的Ajax发送http请求，获取数据。判断列表数据是否存在，如果不存在，显示一条提示信息;如果存在，则显示出来。
+通过一个对比，展示`vue`框架的优势：
+
+需求：根据请求后端接口返回的数据列表，渲染在页面中。
+
+传统上我们使用`jQuery`的`Ajax`发送`http`请求，获取数据。判断列表数据是否存在，如果不存在，显示一条提示信息；如果存在，则显示出来。
 ```html
     <ul class="js-data"></ul>
 ```
@@ -71,9 +73,9 @@
 
 在VUE这个例子中，我们只需要按VUE的语法写好HTML部分，然后在script中请求数据，并完成赋值，视图会自动更新，与上面jQuery呈现的页面完全一样。
 
-在VUE这里，视图HTML部分和逻辑SCRIPT部分完全分开，只专注于各自的业务，我们不用在js中操作DOM，VUE框架的内部会自动帮我们处理。这就是MVVM模式，View（视图） 和 Model（数据） 分离，由框架核心ViewModel控制两者关联。
+在VUE这里，视图HTML部分和逻辑JS部分完全分开，只专注于各自的业务，我们不用在js中操作DOM，VUE框架的内部会自动帮我们处理。这就是MVVM模式，View（视图） 和 Model（数据） 分离，由框架核心ViewModel控制两者关联。
 
-## VUE的MVVM模型
+## `Vue`的`MVVM`模型
 >关于MVC / MVP / MVVM  理解可以查看[阮一峰的blog](http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html)
 
 ![VUE框架模型](./image/mvvm.png)
@@ -84,14 +86,16 @@
 
 按这样划分，我们学习的方向就是VUE框架是如何控制视图层显示，以及如何与逻辑层交互的。
 
-VUE将视图层HTML抽象为一个模板template，作为VUE的template属性的值，模板中HTML元素通过VUE提供的面向视图层的API --叫做指令directive -- 来建立视图层view和viewModel的联系。
+VUE将视图层HTML抽象为一个模板template，作为VUE实例的template属性的值，模板中HTML元素通过指令directive来建立视图层view和viewModel的联系。
 
+VUE向视图层view提供API叫做指令
 VUE向逻辑层model提供的API包括data/methods/computed/watch/filter/component等等。
 
-[DEMO 1-1 template  / data](https://jsrun.net/nEXKp/edit)
+[DEMO 1-1 view  / mode](https://jsrun.net/nEXKp/edit)
 
 >vue在template中实现视图逻辑，在js中实现业务逻辑
 
+上面的例子，我们也可以改为下面的写法，以便更好理解：
 ```html
     <div id="app"></div>
 ```
@@ -121,7 +125,8 @@ VUE向逻辑层model提供的API包括data/methods/computed/watch/filter/compone
     </script>
 ```
 
-## vue:The Progressive Framework
+## Vue: The Progressive Framework
+vue 是一个渐近式框架
 > 参考《深入浅出Vue.js》第一章 p3
 
 **vue 的主要历史**
@@ -133,7 +138,7 @@ VUE向逻辑层model提供的API包括data/methods/computed/watch/filter/compone
 
 **`vue`定位变化**
 
-在最早的`vue`只专注于视图层，没有路由，没有状态管理，也没有官方构建工具，只是一个库，相当一个新视图模板库。
+在最早期的`vue`只专注于视图层，没有路由，没有状态管理，也没有官方构建工具，只是一个库，相当一个新的视图模板库。
 
 后来，为了适应不同应用场景，慢慢加入了一些官方辅助工具，如路由`Router`、状态管理`Vuex`等。
 但是在这个演变发展过程中，`vue`始终维持一个理念：”这个框架应该是**渐近式**的
@@ -142,7 +147,9 @@ VUE向逻辑层model提供的API包括data/methods/computed/watch/filter/compone
 **vue 渐近式框架的理解**
 
 所谓渐近式框架，就是把框架分层。
-最核心的部分是视图层渲染，然后往外是组件机制，在此基础上加入路由机制，加入状态管理，添加单元测试，使用构建工具等。除了核心部分，其它部分都可以根据应用需求添加，不是必需的。
+最核心的部分是视图渲染，然后往外是组件机制，在此基础上加入路由机制，加入状态管理，添加单元测试，使用构建工具等。除了核心部分，其它部分都可以根据项目应用的需求添加，不是必需的。
+
+用一张图理解渐近式的概念
 
 ![VUE框架模型](./image/渐近式1.png)
 

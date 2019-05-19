@@ -1,7 +1,6 @@
-#《Vue.js快跑》
-2019-4-14
+# vue获取模板内容的方式
 
-目录
+## 目录
 - outerHTML获取内容
 - template属性获取内容
     - ES6的字符串模板
@@ -14,14 +13,14 @@
 vue遵循**数据驱动**的理念，在视图层通过**模板**处理数据在页面的显示。所以vue至少要获取到数据和模板内容。数据在VUE实例化时通过配置项的options对象的data属性传入，即`options.data`，那模板内容即页面HTML内容如何获取到呢？
 
 我们先看下官方文档中，VUE的生命周期图解：
-![outerHTML-template-render](./outerHTML-template-render.png)
+![outerHTML-template-render](./image/outerHTML-template-render.png)
 
 在vue实例化过程中，会先判断配置对象options是否有提供template属性值，如果没有就使用原生DOM方法`el.outerHTML()`获取挂载元素中的DOM内容作为模板内容，如果有提供template属性值，就直接使用其值，并覆盖`el`元素中的内容。
 
 另外，vue所获取到的template内容最终都需要传入`render()`渲染，所以vue 2.0之后，也直接将`render`方法暴露出来，可以直接使用。
 
 所以，最终vue获取HTML内容有三种方式：outerHTML() / template / render()，其中每种方法又有一些各自的写法。
-
+### html写法
 ```html
 <div id="example_outerHTML">
     <div>{{ msg }}</div>
@@ -36,7 +35,7 @@ new Vue({
 })
 </script>
 ```
-
+### template 属性写法
 ```html
 <div id="example_template_string"></div>
 
@@ -54,7 +53,7 @@ new Vue({
 })
 <script>
 ```
-
+### template 标签写法
 ```html
 <div id="example_template_tag"></div>
 <template id="temp_tag">
@@ -73,7 +72,7 @@ new Vue({
 })
 </script>
 ```
-
+### script x-template类型
 ```html
 <div id="example_script"></div>
 <script id="temp_script" type="text/x-template">
@@ -90,7 +89,7 @@ new Vue({
 })
 </script>
 ```
-
+### render(createElement)
 ```html
 <div id="example_render_createElement"></div>
 
@@ -115,7 +114,7 @@ new Vue({
 })
 </script>
 ```
-
+### JSX
 ```html
 <div id="example_render_JSX"></div>
 
@@ -138,9 +137,9 @@ new Vue({
 在实际开发中，都采用`.vue`的单文件组件写法，所以HTML内容固定写法是在`<template></tempate>`标签内，但此类文件需要安装`vue-loader`解析插件。
 在`main.js`中`new Vue()`实例化时，获取全局的`APP.vue`组件时都采用`render()`形式。
 
-## 延伸扩展知识
+## 延伸扩展知识（点击查看）
 
 [vue的`render(tagName, data, childNode)`详解]()
 [JSX语法详解]()
-[HTML5的`template`元素：内容模板元素]()
-[原生DOM的方法：`outerHTML`/`innerHTML`/`outerText`/`innerText`/`textContent`区别]()
+[HTML5的`template`元素：内容模板元素](https://www.cnblogs.com/webxu20180730/p/10890820.html)
+[原生DOM的方法：`outerHTML`/`innerHTML`/`outerText`/`innerText`/`textContent`区别](https://www.cnblogs.com/webxu20180730/p/10890863.html)

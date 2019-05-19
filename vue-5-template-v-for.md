@@ -1,5 +1,4 @@
-# 《vue.js快跑》- 5 列表渲染的指令`v-for`
-2019-4-2
+# 5 列表渲染的指令`v-for`
 
 - `v-for` on Array / Object / String / Number
 - `v-for` on template
@@ -19,7 +18,7 @@
 
 >`in` 改为 `of` 同样有效，如 `v-for = "item of arr"`
 
-[DEMO: v-for on Array/Object/String/Number/template](https://jsrun.net/GsXKp/edit)
+[ 点击查看DEMO: v-for on Array/Object/String/Number/template](https://jsrun.net/GsXKp/edit)
 
 ```js
 //js
@@ -73,7 +72,7 @@ new Vue({
 ```
 > 使用`template`包裹元素块可以让文档避免太多无意义块元素，如太多只作包裹性质的`div`
 
-[DEMO: v-for on expression](https://jsrun.net/PcXKp/edit)
+[ 点击查看DEMO: v-for on expression](https://jsrun.net/PcXKp/edit)
 
 ```html
 <!-- v-for on expression -->
@@ -110,7 +109,7 @@ new Vue({
 
 > `key`应该是一个字符串或数值类型的唯一值。不要使用对象或数组之类的`非原始类型值`，如不要用下标`index`作为 v-for 的 key。
 
-[DEMO: v-for with key](https://jsrun.net/pcXKp/edit)
+[ 点击查看DEMO: v-for with key](https://jsrun.net/pcXKp/edit)
 
 ```html
  <!-- has key -->

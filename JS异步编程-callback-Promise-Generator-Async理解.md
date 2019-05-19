@@ -2,7 +2,7 @@
 
 回顾JS异步编程方法的发展，主要有以下几种方式：
 
-1. **callback**
+1. **Callback**
 1. **Promise**
 1. **Generator**
 1. **Async**
@@ -22,7 +22,7 @@ let count = 0
 
 let start // 便于后面计算执行时间
 ```
-1. **callback**
+#### 1. **callback**
 传统常规的写法，如果是多个继行任务就会陷入回调地狱。比如此例中`get`作为`del`的回调函数
 ```js
 let get = () => {
@@ -62,7 +62,7 @@ done:1ms
 get:2007ms
 ```
 
-2. Promise
+#### 2. Promise
 ```js
 let getP = () => {
     return new Promise((resolve, reject) => {
@@ -106,7 +106,7 @@ get:2007ms
 ```
 但是，如果使用Promise.all方法，就能很好将并发任务（三个del)和继发任务（get)区分开了，就是get不用嵌入回调中了。
 
-3. Promise.all
+#### 3. Promise.all
 Promise对象then / catch / all / race / finally，以及resolve / reject更多内容请参阅`MDN`
 ```js
 let delP_1 = (id) => {
@@ -150,7 +150,7 @@ confirmDelP_all()
 get:2008ms
 done:2010ms
 ```
-4. Generator
+#### 4. Generator
 `Generator`类型是一种特殊的函数，它拥有自己独特的语法和方法属性。比如函数名前加*，配合yield 返回异步回调结果， 通过next 传入函数、next返回特殊的包含value和done属性的对象等等，具体见`MDN`
 
 `Generator`是一种**惰性求值**函数，执行一次next()才开启一次执行，到yield又中断，等待下一次next()。所以本人更喜欢叫它**步进函数**，非常适合执行继发任务
@@ -200,8 +200,9 @@ done:4011ms
 我理解`Generator`就是一个用来装载异步继发任务的容器，不阻塞容器外部流程，但是容器内部任务用`yield`设置断点，用`next`步进执行，可以通过next向下一步任务传值，或者直接使用yield返回的上一任务结果。
 
 
-5. async / await
-- async 函数
+#### 5. async / await
+
+#### `async` 函数
 我们先看MDN上关于async function怎么说的：
 > When an async function is called, it returns a Promise. When the async function returns a value, the Promise will be resolved with the returned value. When the async function throws an exception or some value, the Promise will be rejected with the thrown value.
 
@@ -261,11 +262,11 @@ let a = imAsync(1)
 console.log(a) // Promise { resolved }
 ```
 
-- `await`
+### `await`
 再来看看MDN对于await是怎么说的：
 > An async function can contain an await expression, that pauses the execution of the async function and watis for the passed Promise's resolution, and then resumes the async function's execution and returns the resolved value.
 
-**await会暂停当前async函数的执行，等待后面的Promise的计算结果返回以后再继续执行当前的async函数**
+await会暂停当前async函数的执行，等待后面的Promise的计算结果返回以后再继续执行当前的async函数
 
 - **`await`等待什么？？**
 
@@ -273,7 +274,7 @@ console.log(a) // Promise { resolved }
 所以如果要实现中断步进执行的效果，`await`后面接的必须是一个`pedding`状态的`promise`对象，其它状态的`promise`对象或非`promise`对象一概不等待。
 这也是`await`和`yield`的区别（`yield`不管后面是什么，执行完紧接着的表达式就中断）。
 
-- ** async / await 解决了什么问题？？**
+####  async / await 解决了什么问题？
 
 `Promise`解决`callback`嵌套导致回调地狱的问题，但实际上并不彻底，还是在`then`中使用了回调函数。而`async / await`使得异步回调在写法上完成没有，就像同步写法一样。
 看个例子：
@@ -290,7 +291,8 @@ get((a) => {
         }
     }
 })
-
+```
+```js
 // promise
 get()
     .then(a => p1(a))
@@ -298,7 +300,8 @@ get()
     .then(c => p1(c))
     .then(d => p1(d))
     .then(e => {console.log(e)})
-
+```
+```js
 // async / await
 (async (a) => {
     const b = await A(a);
@@ -310,7 +313,7 @@ get()
 })()
 ```
 
-- `async / await` 实现继发任务
+#### `async / await` 实现继发任务
 我们用`async / await`改写上面`Generator`的例子
 ```js
 let delP_1 = (id) => {
@@ -353,7 +356,7 @@ get:4014ms
 done:4016ms
 ```
 
-- `async / await` 实现并发任务
+#### `async / await` 实现并发任务
 
 ```js
 let delP_1 = (id) => {
@@ -389,7 +392,7 @@ done:4ms
 get:1009ms
 ```
 
-- `async / await` 实现并发和继发的混合任务
+#### `async / await` 实现并发和继发的混合任务
 
 如果事件函数中并发任务和继发任务都有，此时使用`async / await`才是最好的解决方式。其中的并发任务用`promise.all`实现，因为它返回的正是`await`可用的`pending`状态的`Promise`对象。
 
@@ -430,9 +433,9 @@ get:2009ms
 done:2010ms
 ```
 
->**所以说`async`是`promise`的语法糖，但是函数返回的`promise`的状态是不一样的。说`await`是`yield`的语法糖，但是`await`只能接受`pending`状态的`promise`对象**
+> **所以说`async`是`promise`的语法糖，但是函数返回的`promise`的状态是不一样的。说`await`是`yield`的语法糖，但是`await`只能接受`pending`状态的`promise`对象**
 
-> **`async`可以单独使用，`await`不能单独使用，只能在`async`函数体内使用**
+> `async`可以单独使用，`await`不能单独使用，只能在`async`函数体内使用
 
 所以针对开头的需求：
 

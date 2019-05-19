@@ -1,6 +1,4 @@
-## 区别：`outerHTML`-`innerTHML`-`outerText`-`innerText`-`textContent`
-
-2019-4-15
+## 区分：`outerHTML`-`innerTHML`-`outerText`-`innerText`-`textContent`
 
 #### 获取值
 ```html

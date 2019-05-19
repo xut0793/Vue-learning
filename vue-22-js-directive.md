@@ -1,6 +1,4 @@
-# 《Vue.js快跑》
-
-2019-4-21
+# directives
 
 在讲解视图层指令时，我们讲到`ref`特性，使用它我们可以获取当前`DOM`元素对象，以便执行相关操作。
 ```html
@@ -101,7 +99,7 @@ vue.directive('my-directive', {
 ```
 - `el`：指令所绑定的`DOM`元素，可以用来直接操作`DOM`对象。
 - `vnode`: `Vue`编译生成的虚拟节点，具体`API`见下文。
-    - 可以使用`vnode.context`来获取所在的上下文对象`this`，
+    - **`vnode.context`来获取当前指令所处的上下文对象`this`，这个属性很有用**，
     - `vnode.ele`来获取该节点元素，但必须在`vnode.context.$nextTick(() => console.log(vnode.elm.parentNode))`得到保证。
 - `oldVnode`：上一个虚拟节点，仅在 `update` 和 `componentUpdated` 钩子中可用。
 - `binding`：对象，包含以下该指令的相关属性。具体如下：
@@ -113,6 +111,7 @@ vue.directive('my-directive', {
     - `oldVlue`：指令上一次的`value`值。它只在`update` 和 `componentUpdated` 钩子中可用。
 
 #### 文件的组织
+
 一般我们使用指令，也就是因为有频繁操作，所以在项目中一般都是全局注册。在项目`src`文件中定义一个`directives`文件夹，新建一个`index.js`
 ```js
 import Vue from 'vue'

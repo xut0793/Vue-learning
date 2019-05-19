@@ -1,8 +1,4 @@
-# 《Vue.js快跑》
-
-2019-4-17
-
-### `methods`
+# methods
 
 函数是十分优雅的语言特性，它让我们可以采用可复用的方式存储一段逻辑，从而不用重复代码就可以在多处调用。函数、组件、模块等都有复用代码的考虑，函数应该是最早组织复用代码的实现。
 在`vue`中，函数被定义为方法来使用，配置在`methods`属性中，`methods`是一个对象，函数名和函数体分别作为`methods`对象的键值对。
@@ -41,7 +37,7 @@ methods: {
     }
 },
 ```
-##### `this`
+### this
 `this`指向当前所处的组件，可以使用`this`访问当前组件的配置对象`Optiins`的所有属性值。并且经过`vue`的封装，可以直接打点调用某个属性值。比如：
 ```js
 var vm = new Vue({
@@ -59,4 +55,4 @@ var vm = new Vue({
 ```
 此时`this`指向这个`vue`实例`vm`。调用`vm.data.count`属性不需要`this.data.count`的写法，而是直接`this.count`或`this.double`或`this.addCount`。在计算属性和方法或其它配置对象属性中使用也一样。
 
-具体见[`vue`作用域概念：全局和局部]()
+具体见[`vue`作用域概念：全局和局部](https://www.cnblogs.com/webxu20180730/p/10890888.html)

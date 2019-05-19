@@ -1,5 +1,4 @@
-# 《vue.js快跑》- 6 绑定元素特性的指令`v-bind`
-2019-4-2
+# 6 绑定元素特性的指令`v-bind`
 
 回顾下，从HTML元素的结构看，在VUE框架中，内容由插值`{{ }}`和`v-html`绑定；`v-if`和`v-show`可以控制元素的可见性；`v-for`可以用于批量生成列表元素。
 
@@ -7,11 +6,11 @@
 ```html
 v-bind:attribute = value
 v-bind:attribute = expression
-
+// v-bind 简写 ：
 :attribute = value
 :attribute = expression
 ```
-[DEMO v-bind on attribute](https://jsrun.net/ydXKp/edit)
+[ 点击查看DEMO v-bind on attribute](https://jsrun.net/ydXKp/edit)
 
 ```html
 <div id="app">

@@ -1,7 +1,5 @@
-# 《Vue.js快跑》
-2019-4-17
+# `computed`
 
-### `computed`
 在指令章节讲过，插值`{{ }}`和指令都接受变量和表达式的写法，使用表达式可以进行简单的二元或三元运算。但如果要执行更加复杂的计算或频繁重复的计算，如果还是直接写在指令的表达式中会让代码过于臃肿，不好看不优雅。这个时候可以使用`computed`属性。
 比如：
 ```html
@@ -42,7 +40,7 @@ computed: {
 常规想法，在这里容易产生一个误区，当我对计算属性赋值，如`this.total = 250`,`total`值会被覆盖直接等于250。但是，实际对计算属性赋值，如果是对象形式，只是会触发执行`set`函数，具体视图如何显示，取决于我们在`set`函数体内的执行代码，有没有更新`get`中的依赖值。
 
 看个例子
-[DEMO:computed by get and set](https://jsrun.net/85XKp/edit)
+[点击查看DEMO:computed by get and set](https://jsrun.net/85XKp/edit)
 ```html
 <div id="app">
     <div>总价：{{ total }}</div>

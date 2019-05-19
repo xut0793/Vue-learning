@@ -1,5 +1,4 @@
 # 《vue.js快跑》- 7 绑定元素样式的指令`v-bind:class` 和`v-bind:style`
-2019-4-2
 
 在HTML元素结构中，`class`和`style`特性(`attribute`)是非常突出的，可以为元素添加样式属性(`property`)。
 
@@ -21,7 +20,7 @@
 ```
 再看vue语法动态绑定类class
 
-[DEMO：`v-bind:class`](https://jsrun.net/fdXKp/edit)
+[点击查看DEMO：`v-bind:class`](https://jsrun.net/fdXKp/edit)
 ```html
 <div id="app">
     <!-- 表达式形式，可以是data中的数据，也可以是计算属性中的数据 -->
@@ -93,7 +92,7 @@ vue绑定的`style`为行为样式，我们先看下常规行为样式写法
 ```html
 <div style="font-size:red;">set font color to red by style</div>
 ```
-[DEMO：`v-bind:style`](https://jsrun.net/JdXKp/edit)
+[点击查看DEMO：`v-bind:style`](https://jsrun.net/JdXKp/edit)
 ```html
 <div id="app">
     <!-- 表达式形式，可以是data中的数据，也可以是计算属性中的数据 -->
