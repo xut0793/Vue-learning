@@ -51,8 +51,8 @@ vue.js学习路径
 - [**` created`**](https://www.cnblogs.com/webxu20180730/p/10891671.html)
 - [` beforeMount`](https://www.cnblogs.com/webxu20180730/p/10891671.html)
 - [**` mounted`**](https://www.cnblogs.com/webxu20180730/p/10891671.html)
-- [`beforeUndate`](https://www.cnblogs.com/webxu20180730/p/10891671.html)
-- [**` undated`**](https://www.cnblogs.com/webxu20180730/p/10891671.html)
+- [`beforeUpdate`](https://www.cnblogs.com/webxu20180730/p/10891671.html)
+- [**` updated`**](https://www.cnblogs.com/webxu20180730/p/10891671.html)
 - [`beforeDestory`](https://www.cnblogs.com/webxu20180730/p/10891671.html)
 - [`destory`](https://www.cnblogs.com/webxu20180730/p/10891671.html)
 - [`activated` (`keep-alive`)](https://www.cnblogs.com/webxu20180730/p/10891671.html)
@@ -61,7 +61,7 @@ vue.js学习路径
 ## 组件 `Component`
 ## 路由 `Vue-router`
 ## 状态管理 `Vuex`
-## 单元测试 `ue-test-utils`
+## 单元测试 `Vue-test-utils`
 ## 项目构建`vue-cli`
 
 ## 进阶内容
