@@ -29,10 +29,13 @@
             }
         }
         ```
+    - prop的命名规范
     - 动态prop（除字符串外，其它类型传入都需要使用动态prop，即v-bind绑定）
-    - 非prop特性（被替换或合并、禁用继承）
-    - `$attr`
-    - 其它：单向数据流的特性，以及prop的大小写
+    - 单向数据流和prop实现双向绑定.sync修饰符
+    - 非prop特性
+        - 被替换或合并
+        - 禁用继承 `inheritAttr: false`
+        - `$attr`
 
     **event**
     - `v-on  /  $on` 监听事件
