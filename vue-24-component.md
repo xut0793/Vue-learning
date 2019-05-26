@@ -42,10 +42,10 @@
     - `$once`  一次性事件
     - `$emit` 触发事件
     - `$off`  卸载事件监听
+    - `$listeners` v-on绑定监听器集合（除原生监听事件）
     - `.native` 原生事件修饰符
     - `.sync`  双向绑定修饰符
     - `model` 属性
-    - `$listeners` 监听器集合（除原生监听事件）
 
     **slot**
     - 普通插槽 
@@ -99,10 +99,6 @@
         ```
     - 模板编译作用域 和 插槽作用域
 
-1. **动态组件**
-1. **异步组件**
-1. **内置组件**
-
 1. **组件实例的调用**
     - `ref`
     - `$root`
@@ -111,9 +107,15 @@
 
 1. **组件间的通信**
     - 父子组件通信 `prop / $emit`
+    - 3层嵌套组件 `$attrs` / `$liteners`
     - 后代组件通信 `provide / inject`
+    - 组件实例引用 `$root` / `$parent` / `$children` / `$refs`
     - 事件总线 `const Bus = new Vue()`
     - 状态管理器 `Vuex`
+1. **动态组件`is`**
+1. **异步组件`function`**
+1. **内置组件`transiton` / `keep-alive`**
+
 
 1. **其它**
     - 组件的递归调用

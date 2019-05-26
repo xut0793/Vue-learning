@@ -9,7 +9,7 @@
 - 非prop：替换或合并 / 禁用inheritAttrs:false  / $attrs
 
 上节对组件的概念讲到，组件是可复用的`Vue`实例，并且组件可以嵌套，组件间可以相互通信。
-两个嵌套的组件，父组件向子组件需要向子组件传值，常规的做法就是采用`prop`
+两个嵌套的组件通信，父组件向子组件传值，常规的做法就是采用`prop`
 
 先看个一个例子直观感受下：
 ```html
@@ -25,15 +25,16 @@ new Vue({
         MyChild: {
             template: `<div :style="{color: textColor}">The text will be colorfully</div>`,
             props: ['textColor']
+            // 在子组件中可以像使用data数据一样使用props中的数据。
         }
     }
 })
 ```
 
 ## prop的大小写
-在组件命名规范中，我们也提到过，HTML是大小写不敏感的，在DOM模板中必须使用 kebab-case，即连字符-形式。在JS域中，prop使用pascalCase,即小驼峰形式。区别于组件名的PascalCase大驼峰形式。
+在组件命名规范中提到过，HTML是大小写不敏感的，在DOM模板中必须使用 kebab-case，即连字符-形式。在JS域中，prop使用camelCase ,即小驼峰形式。区别于组件名的PascalCase大驼峰形式。
 
-## prop接收类型
+## prop接收值类型
 
 简单的传值可以采用数组形式，但更建议使用语义更明确，且带有数值验证功能的对象形式。这样当 prop 验证失败的时候，开发环境下， Vue 将会在控制台产生一个警告。
 
@@ -81,7 +82,7 @@ Vue.component('my-component', {
 })
 ```
 
-## prop传递类型
+## 父级组件传递prop的方式
 
 ### 静态传值
 静态传值，始终将值以字符串形式传递到子组件接收。
@@ -112,7 +113,7 @@ Vue.component('my-component', {
 ```
 **传入一个布尔值**
 ```html
-<!-- 包含该 prop 没有值的情况在内，都意味着 `true`。-->
+<!-- 即使该is-published没有值的情况在内，都意味着 `true`。-->
 <blog-post is-published></blog-post>
 
 <!-- 即便 `false` 是静态的，我们仍然需要 `v-bind` 来告诉 Vue -->
@@ -141,13 +142,33 @@ Vue.component('my-component', {
     company: 'Veridian Dynamics'
   }"
 ></blog-post>
+<!-- 或者 -->
+<blog-post
+  v-bind:author="author"
+></blog-post>
+data: {
+  author: {
+    name: 'Veronica',
+    company: 'Veridian Dynamics'
+  }
+}
+<!-- 组件接收时格式：组件可以通过打点访问对象的属性 -->
+Vue.component('child', {
+  props: ['author'],
+  template: '<span >{{ author.name }}  {{author.company}}</span>'
+})
 
 <!-- 将一个对象的所有属性都作为 prop 传入-->
 <blog-post v-bind="author"></blog-post>
+<!-- 组件接收格式：props需要声明对象的每个属性 -->
+Vue.component('child', {
+  props: ['name','company'],  
+  template: '<span >{{ name }}  {{company}}</span>'
+})
 ```
 
 ## 单向数据流
-prop使用父子组件间形成了一个单向数据绑定，父组件的值可以供子组件调用。在使用`v-bind`动态绑定时，每当父组件传入的值发生更新，子组件也会将对应的prop刷新。但是子组件无法对prop值直接进行修改，如果这样做，控制台会发出警告。
+prop使父子组件间形成了一个单向数据绑定，父组件的值可以供子组件调用。在使用`v-bind`动态绑定时，每当父组件传入的值发生更新，子组件也会将对应的prop刷新。但是子组件无法对prop值直接进行修改，如果这样做，控制台会发出警告。
 这就是组件prop的单向数据流特性。
 
 但是在实现项目中，子组件内部在使用prop值的地方并不是一直不变的，可能初始值使用prop传入的值，但后面在子组件内还会更新此处的值，但受限于无法在子组件内直接修改prop，所以可以尝试以下两种方式：
