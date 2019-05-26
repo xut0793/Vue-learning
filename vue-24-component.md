@@ -94,27 +94,31 @@
     - `v-slot` 的简写 `#`
         ```html
         <my-com>
-            <template #:somName></template>
+            <template #somName></template>
         <my-com>
         ```
-    - 模板编译作用域 和 插槽作用域
-
-1. **组件实例的调用**
-    - `ref`
+    - 模板编译作用域
+    父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。
+1. **组件依赖注入**
+    - `provide`
+    - `inject`
+1. **组件实例的引用**
+    - `ref / $refs`
     - `$root`
     - `$parent`
     - `$children`
+    - `自定义扩展方法`
 
 1. **组件间的通信**
     - 父子组件通信 `prop / $emit`
-    - 3层嵌套组件 `$attrs` / `$liteners`
+    - 嵌套组件 `$attrs` / `$liteners`
     - 后代组件通信 `provide / inject`
     - 组件实例引用 `$root` / `$parent` / `$children` / `$refs`
     - 事件总线 `const Bus = new Vue()`
     - 状态管理器 `Vuex`
-1. **动态组件`is`**
+1. **动态组件`<component is="com-name"></component>`**
 1. **异步组件`function`**
-1. **内置组件`transiton` / `keep-alive`**
+1. **内置组件`transiton` / `keep-alive` / `component`**
 
 
 1. **其它**
