@@ -120,14 +120,37 @@ const customSection = Vue.extend({
 **动态选择插槽**
 子组件内可以定义多组插槽，外部引用时根据条件决定显示调用哪个具名插槽，相当于一个switch语句。
 ```html
-<template v-slot:[variable]></template>
+<div id="app">
+    <button @click="changeSlot">点击切换slot</button>
+    <custom-section>
+        <template v-slot:[variable]>改变了插槽</template>
+    </custom-section>
+</div>
 ```
 ```js
-template: `<article>
+const customSection = Vue.extend({
+    template: `<article>
         <slot name="js">this is content for js</slot>
         <slot name="html">this is content for html</slot>
         <slot name="css">this is content for css</slot>
     </article>`,
+})
+const vm = new Vue({
+    el: "#app",
+    components: {
+        customSection
+    },
+    data: {
+        index: 0,
+        arr: ['html', 'css', 'js'],
+        variable: 'html'
+    },
+    methods: {
+        changeSlot() {
+            this.variable = this.arr[++this.index % 3]
+        }
+    }
+})
 ```
 
 ## 作用域插槽
