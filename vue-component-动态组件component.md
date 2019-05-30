@@ -4,7 +4,7 @@
 
 必要条件：
 - 组件标签使用`<component></component>`
-- 使用`is`特性
+- 动态绑定使用`is`特性`v-bind:is=""`
 
 ```html
  <div id="app">
