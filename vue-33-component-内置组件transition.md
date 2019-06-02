@@ -16,6 +16,35 @@
     - 数值，结合watch和TweenMax
     - 使用colorjs和Tween.js
     - 包装成组件
+- `<transition>`的属性prop:
+  - name - string，用于自动生成 CSS 过渡类名。例如：name: 'fade' 将自动拓展为.fade-enter，.fade-enter-active等。默认类名为 "v"
+  - mode - string，控制离开/进入的过渡时间序列。有效的模式有 "out-in" 和 "in-out"；默认同时生效。
+  - enter-class - string
+  - enter-active-class - string
+  - enter-to-class - string
+  - leave-class - string
+  - leave-active-class - string
+  - leave-to-class - string
+  =====================
+  - appear - boolean，是否在初始渲染时使用过渡。默认为 false。
+  - appear-class - string
+  - appear-active-class - string
+  - appear-to-class - string
+  ==========================
+  - css - boolean，是否使用 CSS 过渡类。默认为 true。如果设置为 false，将只通过组件事件触发注册的 JavaScript 钩子。
+  - @before-enter
+  - @enter
+  - @after-enter
+  - @enter-cancelled
+  - @before-leave
+  - @leave
+  - @after-leave
+  - @leave-cancelled (v-show only)
+  - @before-appear
+  - @appear
+  - @after-appear
+  - @appear-cancelled
+- `<transition-group tag="">`其它prop同`<transition>`
 
 这里只是把内容和概念整理成更易理解和记忆的知识脉路，官方文档在这一节内容提供了非常详细的示例说明，就不重复写示例了。
 **[各种示例请点击查看官方文档](https://cn.vuejs.org/v2/guide/transitions.html)**
