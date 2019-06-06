@@ -14,3 +14,4 @@
     1. 路由对象route
     1. router-link
     1. router-view
+1. 路由传参的4种方式
