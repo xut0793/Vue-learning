@@ -179,31 +179,33 @@ vue.js学习路径
     1. 路由对象route
     1. router-link标签的特性
     1. router-view标签的特性
+    
 1. 路由传参的5种方式
-    1.路由动态参数: '/user/:userId'和params
+
+    1. 路由动态参数: '/user/:userId'和params
     ```js
     const route = {path: '/user/:userId'}
     this.$router.push({path:`/user/${userId}`})
     this.$route.params.userId
     ```
-    2.命名路由传参,使用name和params
+    1. 命名路由传参,使用name和params
     ```js
     const route = {name:'home',...}
     this.$router.push({name:'Login',params:{id:'leelei'}})
     this.$route.params.id
     ```
-    3.查询参数传参，使用path和query
+    1. 查询参数传参，使用path和query
     ```js
     this.$router.push({path:'/login',query:{id:'leelei'})
     this.$route.query.id
     ```
-    4.prop形式：布尔/对象/函数
+    1. prop形式：布尔/对象/函数
     ```js
     const route = [{prop:true, ...}]
     const route = [{prop: {someProp:'someValue'}] 
     const routes =[{props: (route) => ({ query: route.query.q }),...}]
     ```
-    5. meta元信息定义数据
+    1. meta元信息定义数据
     ```js
     // 定义路由时，定义元信息
     const routes = [
