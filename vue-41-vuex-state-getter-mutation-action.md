@@ -197,3 +197,11 @@ export default {
   }
 }
 ```
+
+## vuex项目组织
+[Vuex下Store的模块化拆分实践](https://segmentfault.com/a/1190000007667542)
+
+## 参考链接
+[vuex源码分析](https://segmentfault.com/a/1190000010203499)
+[小火柴的蓝色理想:Vue状态管理vuex](https://www.cnblogs.com/xiaohuochai/p/7554127.html#top)
+[前端状态管理与有限状态机](https://www.jianshu.com/p/d64d51c0f88e)

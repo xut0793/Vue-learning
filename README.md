@@ -1,8 +1,9 @@
 # Vue-learning
 vue.js学习路径
-
 ![map](./image/渐近式1.png)
 
+## Vue的API地图
+[vue的API地图](https://marozed.ma/vue-cheatsheet/)
 
 ## 视图层
 点击可直接到达详情页面
@@ -153,7 +154,8 @@ vue.js学习路径
     - 事件总线 `const Bus = new Vue()`
     - 状态管理器 `Vuex`
 1. **动态组件`is`**
-1. **异步组件`function`**
+1. **异步组件`工厂函数`**
+1. **函数式组件`functional`**
 1. **内置组件`transiton` / `keep-alive`**
 
 
@@ -164,9 +166,71 @@ vue.js学习路径
 
 
 ## 路由 `Vue-router`
+
+1. 前端路由历史
+    1. 服务端渲染(SSR:server side render)
+    1. 客户端路由(client side routing)
+1. 前端路由实现原理
+    1. hash模式: location.hash 和 hashChange事件
+    1. history模式： history 和 popstate事件
+1. vue-router
+    1. const router = new VueRouter(option)中的选项对象option
+    1. 路由器实例对象router
+    1. 路由对象route
+    1. router-link标签的特性
+    1. router-view标签的特性
+1. 路由传参的5种方式
+    1.路由动态参数: '/user/:userId'和params
+    ```js
+    const route = {path: '/user/:userId'}
+    this.$router.push({path:`/user/${userId}`})
+    this.$route.params.userId
+    ```
+    2.命名路由传参,使用name和params
+    ```js
+    const route = {name:'home',...}
+    this.$router.push({name:'Login',params:{id:'leelei'}})
+    this.$route.params.id
+    ```
+    3.查询参数传参，使用path和query
+    ```js
+    this.$router.push({path:'/login',query:{id:'leelei'})
+    this.$route.query.id
+    ```
+    4.prop形式：布尔/对象/函数
+    ```js
+    const route = [{prop:true, ...}]
+    const route = [{prop: {someProp:'someValue'}] 
+    const routes =[{props: (route) => ({ query: route.query.q }),...}]
+    ```
+    5. meta元信息定义数据
+    ```js
+    // 定义路由时，定义元信息
+    const routes = [
+    {meta: {someData:'someData'},... },
+    // 获取数据
+    this.$route.meta.someData
+    ```
+1. 从路由中获取组件实例
+    ```js
+    const matchedComponents: Array<Component> = this.$router.getMatchedComponents(location?)
+    ```
+
 ## 状态管理 `Vuex`
+1. 状态管理的概念
+1. vuex基本使用
+1. Vuex对象
+1. option选项
+1. store实例对象的属性: state, getters
+1. store实例对象的方法
+    1. commit / dispatch
+    1. 注册和卸载plugin的方法
+    1. 注册和卸载Module的方法
+    1. vuex的辅助函数: mapState / mapGetters / mapMutaions / mapActions
+1. vuex的项目结构组织
 ## 单元测试 `Vue-test-utils`
 ## 项目构建`vue-cli`
+## 项目插件：`vue-loader` `vue-devtools`
 
 ## 进阶内容
 - 响应式原理
